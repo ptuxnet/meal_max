@@ -1,16 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:meal_app/category_screen.dart';
-import 'package:meal_app/data/dummy_data.dart';
-import 'package:meal_app/screens/meals.dart';
+import 'package:meal_app/screens/category_screen.dart';
+import 'package:meal_app/screens/tabs.dart';
 
 void main() {
-  WidgetsFlutterBinding.ensureInitialized();
-
-  // It won't let go device orientation to landscape mode.
-  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
-      .then((value) => runApp(const MyApp()));
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -21,11 +15,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Meal App',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(
+          brightness: Brightness.dark,
+          seedColor: Color.fromARGB(255, 131, 57, 0),
+        ),
         useMaterial3: true,
         textTheme: GoogleFonts.latoTextTheme(),
       ),
-      home: CategoryScreen(),
+      home: TabsScreen(),
     );
   }
 }

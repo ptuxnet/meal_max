@@ -37,7 +37,9 @@ class CategoryItem extends StatelessWidget {
         ),
         child: Text(
           title.toString(),
-          style: Theme.of(context).textTheme.bodyMedium,
+          style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                color: Theme.of(context).colorScheme.onSurface,
+              ),
         ),
       ),
     );
