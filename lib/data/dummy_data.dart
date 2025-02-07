@@ -517,40 +517,6 @@ const dummyMeals = [
     isLactoseFree: false,
   ),
   Meal(
-    id: 'm15',
-    categories: [
-      'c2',
-      'c6',
-    ],
-    title: 'Chicken Alfredo',
-    affordability: Affordability.pricey,
-    complexity: Complexity.simple,
-    imageUrl:
-        'https://gimmedelicious.com/wp-content/uploads/2024/10/Skinny-Chicken-Broccoli-Alfredo.jpg',
-    duration: 30,
-    ingredients: [
-      '2 Chicken Breasts, sliced',
-      '1 Tablespoon Olive Oil',
-      '2 Cups Heavy Cream',
-      '1 Cup Parmesan Cheese, grated',
-      '1 Teaspoon Garlic Powder',
-      '1/2 Teaspoon Salt',
-      '1/4 Teaspoon Black Pepper',
-      '1 Pound Fettuccine Pasta',
-      '1/4 Cup Fresh Parsley, chopped',
-    ],
-    steps: [
-      'In a large skillet, heat olive oil over medium-high heat. Add chicken and cook until no longer pink, about 5-7 minutes.',
-      'Reduce heat to medium and add heavy cream, Parmesan cheese, garlic powder, salt, and pepper. Stir until cheese is melted and sauce is smooth.',
-      'Cook pasta according to package instructions. Drain and add to skillet with sauce. Toss to coat.',
-      'Garnish with parsley and serve immediately.'
-    ],
-    isGlutenFree: false,
-    isVegan: false,
-    isVegetarian: false,
-    isLactoseFree: false,
-  ),
-  Meal(
     id: 'm18',
     categories: [
       'c5',

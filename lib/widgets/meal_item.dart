@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons/lucide_icons.dart';
 import 'package:meal_app/model/meal.dart';
 import 'package:meal_app/widgets/meal_item_trait.dart';
 import 'package:transparent_image/transparent_image.dart';
@@ -24,8 +25,6 @@ class MealItem extends StatelessWidget {
     return meal.affordability.name[0].toUpperCase() +
         meal.affordability.name.substring(1);
   }
-
-  // container opacity;
 
   @override
   Widget build(BuildContext context) {
@@ -86,7 +85,7 @@ class MealItem extends StatelessWidget {
                             ),
                             const SizedBox(width: 12),
                             MealItemTrait(
-                              icon: Icons.attach_money,
+                              icon: LucideIcons.indianRupee,
                               lable: affordabilityText,
                             ),
                           ],

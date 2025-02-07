@@ -5,9 +5,11 @@ class MealDetailsScreen extends StatelessWidget {
   const MealDetailsScreen({
     super.key,
     required this.meal,
+    required this.onToggleFavorite,
   });
 
   final Meal meal;
+  final void Function(Meal meal) onToggleFavorite;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +18,9 @@ class MealDetailsScreen extends StatelessWidget {
           title: Text(meal.title),
           actions: [
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                onToggleFavorite(meal);
+              },
               icon: Icon(Icons.star),
             )
           ],
@@ -40,13 +44,16 @@ class MealDetailsScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 14),
-            Text(
-              'Ingredients',
-              textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                    color: Theme.of(context).colorScheme.onSurface,
-                    fontWeight: FontWeight.bold,
-                  ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: Text(
+                'Ingredients',
+                textAlign: TextAlign.left,
+                style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                      color: Theme.of(context).colorScheme.onSurface,
+                      fontWeight: FontWeight.bold,
+                    ),
+              ),
             ),
             const SizedBox(height: 14),
             for (int i = 0; i < meal.ingredients.length; i++)
@@ -75,13 +82,16 @@ class MealDetailsScreen extends StatelessWidget {
                 ),
               ),
             const SizedBox(height: 14),
-            Text(
-              'Steps',
-              textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                    color: Theme.of(context).colorScheme.onSurface,
-                    fontWeight: FontWeight.bold,
-                  ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: Text(
+                'Steps',
+                textAlign: TextAlign.left,
+                style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                      color: Theme.of(context).colorScheme.onSurface,
+                      fontWeight: FontWeight.bold,
+                    ),
+              ),
             ),
             const SizedBox(height: 14),
             for (int i = 0; i < meal.steps.length; i++)
