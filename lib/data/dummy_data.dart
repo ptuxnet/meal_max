@@ -477,41 +477,7 @@ const dummyMeals = [
     isVegetarian: true,
     isLactoseFree: false,
   ),
-  Meal(
-    id: 'm13',
-    categories: [
-      'c5',
-      'c10',
-    ],
-    title: 'Caesar Salad',
-    affordability: Affordability.pricey,
-    complexity: Complexity.simple,
-    imageUrl:
-        'https://cdn.loveandlemons.com/wp-content/uploads/2024/12/caesar-salad-recipe-758x1024.jpg',
-    duration: 20,
-    ingredients: [
-      '1/2 Cup Olive Oil',
-      '1/4 Cup Lemon Juice',
-      '1 Clove Garlic, minced',
-      '1 Teaspoon Worcestershire Sauce',
-      '1 Teaspoon Dijon Mustard',
-      '1/2 Teaspoon Salt',
-      '1/4 Teaspoon Black Pepper',
-      '1 Head Romaine Lettuce, chopped',
-      '1/2 Cup Parmesan Cheese, grated',
-      '1 Cup Croutons',
-    ],
-    steps: [
-      'In a small bowl, whisk together olive oil, lemon juice, garlic, Worcestershire sauce, mustard, salt, and pepper.',
-      'In a large bowl, combine lettuce, Parmesan cheese, and croutons.',
-      'Pour dressing over salad and toss to coat.',
-      'Serve immediately.'
-    ],
-    isGlutenFree: false,
-    isVegan: false,
-    isVegetarian: true,
-    isLactoseFree: false,
-  ),
+
   Meal(
     id: 'm14',
     categories: [
@@ -582,73 +548,6 @@ const dummyMeals = [
     isGlutenFree: false,
     isVegan: false,
     isVegetarian: false,
-    isLactoseFree: false,
-  ),
-  Meal(
-    id: 'm16',
-    categories: [
-      'c3',
-      'c8',
-    ],
-    title: 'Beef Stir Fry',
-    affordability: Affordability.affordable,
-    complexity: Complexity.challenging,
-    imageUrl:
-        'https://www.thecookierookie.com/wp-content/uploads/2022/01/beef-stir-fry-recipe-3.jpg',
-    duration: 25,
-    ingredients: [
-      '1 Pound Beef Sirloin, sliced into thin strips',
-      '2 Tablespoons Soy Sauce',
-      '1 Tablespoon Cornstarch',
-      '2 Tablespoons Vegetable Oil',
-      '1 Red Bell Pepper, sliced',
-      '1 Green Bell Pepper, sliced',
-      '1 Onion, sliced',
-      '2 Cloves Garlic, minced',
-      '1/4 Cup Beef Broth',
-      '2 Tablespoons Hoisin Sauce',
-      '1 Teaspoon Sesame Oil',
-    ],
-    steps: [
-      'In a medium bowl, combine beef, soy sauce, and cornstarch. Toss to coat.',
-      'In a large skillet, heat vegetable oil over medium-high heat. Add beef and cook until browned, about 3-5 minutes. Remove from skillet and set aside.',
-      'In the same skillet, add bell peppers, onion, and garlic. Cook until vegetables are tender, about 5-7 minutes.',
-      'Return beef to skillet and add beef broth, hoisin sauce, and sesame oil. Stir to combine and cook until heated through, about 2-3 minutes.',
-      'Serve hot.'
-    ],
-    isGlutenFree: false,
-    isVegan: false,
-    isVegetarian: false,
-    isLactoseFree: true,
-  ),
-  Meal(
-    id: 'm17',
-    categories: [
-      'c4',
-      'c9',
-    ],
-    title: 'Crepes',
-    affordability: Affordability.affordable,
-    complexity: Complexity.simple,
-    imageUrl:
-        'https://www.iheartnaptime.net/wp-content/uploads/2022/12/crepes-i-heart-naptime.jpg',
-    duration: 20,
-    ingredients: [
-      '1 Cup All-purpose Flour',
-      '2 Eggs',
-      '1/2 Cup Milk',
-      '1/2 Cup Water',
-      '1/4 Teaspoon Salt',
-      '2 Tablespoons Butter, melted',
-    ],
-    steps: [
-      'In a large mixing bowl, whisk together flour and eggs. Gradually add in milk and water, stirring to combine. Add salt and butter; beat until smooth.',
-      'Heat a lightly oiled griddle or frying pan over medium high heat. Pour or scoop the batter onto the griddle, using approximately 1/4 cup for each crepe. Tilt the pan with a circular motion so that the batter coats the surface evenly.',
-      'Cook the crepe for about 2 minutes, until the bottom is light brown. Loosen with a spatula, turn and cook the other side. Serve hot.'
-    ],
-    isGlutenFree: false,
-    isVegan: false,
-    isVegetarian: true,
     isLactoseFree: false,
   ),
   Meal(
