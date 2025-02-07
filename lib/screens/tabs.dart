@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:meal_app/model/meal.dart';
 import 'package:meal_app/screens/category_screen.dart';
@@ -17,11 +19,47 @@ class _TabsScreenState extends State<TabsScreen> {
   void _toggleMealfavoriteStatus(Meal meal) {
     final isExisting = _favoriteMeals.contains(meal);
 
-    if (isExisting) {
-      _favoriteMeals.remove(meal);
-    } else {
-      _favoriteMeals.add(meal);
-    }
+    setState(() {
+      if (isExisting) {
+        _favoriteMeals.remove(meal);
+        final snackBar = SnackBar(
+          content: Text('${meal.title} removed from favorites'),
+          action: SnackBarAction(
+            label: 'Undo',
+            onPressed: () {
+              setState(() {
+                _favoriteMeals.add(meal);
+              });
+            },
+          ),
+        );
+        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+
+        Timer(Duration(seconds: 4), () {
+          ScaffoldMessenger.of(context).hideCurrentSnackBar();
+        });
+      } else {
+        _favoriteMeals.add(meal);
+        final snackBar = SnackBar(
+          content: Text('${meal.title} added to favorites'),
+          action: SnackBarAction(
+            label: 'Undo',
+            onPressed: () {
+              setState(() {
+                _favoriteMeals.remove(meal);
+              });
+            },
+          ),
+        );
+        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+        Timer(
+          Duration(seconds: 4),
+          () {
+            ScaffoldMessenger.of(context).hideCurrentSnackBar();
+          },
+        );
+      }
+    });
   }
 
   void _selectPage(int index) {
@@ -51,18 +89,19 @@ class _TabsScreenState extends State<TabsScreen> {
       ),
       body: activePage,
       bottomNavigationBar: BottomNavigationBar(
-          currentIndex: _selectedPageIndex,
-          onTap: _selectPage,
-          items: [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.set_meal),
-              label: 'Categories',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.star),
-              label: 'Favorites',
-            ),
-          ]),
+        currentIndex: _selectedPageIndex,
+        onTap: _selectPage,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.set_meal),
+            label: 'Categories',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.star),
+            label: 'Favorites',
+          ),
+        ],
+      ),
     );
   }
 }
