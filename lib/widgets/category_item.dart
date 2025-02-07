@@ -20,7 +20,7 @@ class CategoryItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
+    return GestureDetector(
       onTap: onSelectCategory,
       child: Container(
         padding: const EdgeInsets.all(10),

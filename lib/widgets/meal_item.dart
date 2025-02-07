@@ -28,65 +28,73 @@ class MealItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      child: InkWell(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: GestureDetector(
         onTap: () {
           onSelectMeal(context, meal);
         },
-        child: Stack(
-          children: [
-            FadeInImage(
-              placeholder: MemoryImage(kTransparentImage),
-              image: NetworkImage(meal.imageUrl),
-            ),
-            Positioned(
-              bottom: 0,
-              left: 0,
-              right: 0,
-              child: Container(
-                color: Colors.black54,
-                padding: EdgeInsets.symmetric(
-                  vertical: 6,
-                  horizontal: 44,
-                ),
-                child: Column(
-                  children: [
-                    Text(
-                      meal.title,
-                      maxLines: 2,
-                      textAlign: TextAlign.center,
-                      softWrap: true,
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
-                    ),
-                    const SizedBox(height: 12),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        MealItemTrait(
-                          icon: Icons.schedule,
-                          lable: '${meal.duration} min',
-                        ),
-                        const SizedBox(width: 12),
-                        MealItemTrait(
-                          icon: Icons.work,
-                          lable: complexityText,
-                        ),
-                        const SizedBox(width: 12),
-                        MealItemTrait(
-                          icon: Icons.attach_money,
-                          lable: affordabilityText,
-                        ),
-                      ],
-                    )
-                  ],
-                ),
+        child: Card(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
+          ),
+          child: Stack(
+            children: [
+              FadeInImage(
+                placeholder: MemoryImage(kTransparentImage),
+                image: NetworkImage(meal.imageUrl),
               ),
-            )
-          ],
+              Positioned(
+                bottom: 0,
+                left: 0,
+                right: 0,
+                child: Container(
+                  color: Colors.black54,
+                  padding: EdgeInsets.symmetric(
+                    vertical: 6,
+                    horizontal: 44,
+                  ),
+                  child: Column(
+                    children: [
+                      Text(
+                        meal.title,
+                        maxLines: 2,
+                        textAlign: TextAlign.center,
+                        softWrap: true,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                      const SizedBox(height: 12),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          MealItemTrait(
+                            icon: Icons.schedule,
+                            lable: '${meal.duration} min',
+                          ),
+                          const SizedBox(width: 12),
+                          MealItemTrait(
+                            icon: Icons.work,
+                            lable: complexityText,
+                          ),
+                          const SizedBox(width: 12),
+                          MealItemTrait(
+                            icon: Icons.attach_money,
+                            lable: affordabilityText,
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
