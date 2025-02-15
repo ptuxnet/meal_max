@@ -1,27 +1,57 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:meal_app/model/meal.dart';
+import 'package:meal_app/provider/favorites_provider.dart';
 
-class MealDetailsScreen extends StatelessWidget {
+class MealDetailsScreen extends ConsumerWidget {
   const MealDetailsScreen({
     super.key,
     required this.meal,
-    required this.onToggleFavorite,
   });
 
   final Meal meal;
-  final void Function(Meal meal) onToggleFavorite;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
         appBar: AppBar(
           title: Text(meal.title),
           actions: [
             IconButton(
               onPressed: () {
-                onToggleFavorite(meal);
+                final favoriteMealsNotifier =
+                    ref.read(favoriteMealsProvider.notifier);
+                final wasAdded =
+                    favoriteMealsNotifier.toggleMealFavoriteStatus(meal);
+                final snackBar = SnackBar(
+                  content: Text(
+                    wasAdded
+                        ? '${meal.title} added to favorites'
+                        : '${meal.title} removed from favorites',
+                  ),
+                  action: SnackBarAction(
+                    label: 'Undo',
+                    onPressed: () {
+                      favoriteMealsNotifier.toggleMealFavoriteStatus(meal);
+                    },
+                  ),
+                  duration: const Duration(seconds: 4),
+                );
+
+                ScaffoldMessenger.of(context).showSnackBar(snackBar);
               },
-              icon: Icon(Icons.star),
+              icon: Consumer(
+                builder: (context, ref, child) {
+                  final isFavorite =
+                      ref.watch(favoriteMealsProvider).contains(meal);
+                  return Icon(
+                    isFavorite
+                        ? Icons.favorite
+                        : Icons.favorite_border_outlined,
+                    color: isFavorite ? Colors.red : null,
+                  );
+                },
+              ),
             )
           ],
         ),
