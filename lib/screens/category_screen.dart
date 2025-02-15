@@ -5,8 +5,6 @@ import 'package:meal_app/screens/meals.dart';
 import 'package:meal_app/widgets/category_item.dart';
 import 'package:meal_app/data/dummy_data.dart';
 
-// Assuming dummyCategories is defined in dummy_data.dart
-
 class CategoryScreen extends StatelessWidget {
   const CategoryScreen({
     super.key,
@@ -47,11 +45,12 @@ class CategoryScreen extends StatelessWidget {
       children: [
         for (final category in availableCategories)
           CategoryItem(
-              color: category.color,
-              id: category.id,
-              title: category.title,
-              category: category,
-              onSelectCategory: () => _selectCategory(context, category))
+            color: category.color,
+            id: category.id,
+            title: category.title,
+            category: category,
+            onSelectCategory: () => _selectCategory(context, category),
+          )
       ],
     );
   }
