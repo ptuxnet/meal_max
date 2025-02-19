@@ -29,13 +29,6 @@ class MealDetailsScreen extends ConsumerWidget {
                         ? '${meal.title} added to favorites'
                         : '${meal.title} removed from favorites',
                   ),
-                  action: SnackBarAction(
-                    label: 'Undo',
-                    onPressed: () {
-                      favoriteMealsNotifier.toggleMealFavoriteStatus(meal);
-                    },
-                  ),
-                  duration: const Duration(seconds: 4),
                 );
 
                 ScaffoldMessenger.of(context).showSnackBar(snackBar);
